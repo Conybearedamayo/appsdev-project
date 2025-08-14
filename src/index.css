@@ -1,0 +1,144 @@
+/* Import a modern font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Define a modern color palette and other variables */
+:root {
+  --font-primary: 'Poppins', sans-serif;
+  --color-background: #f8f9fa;
+  --color-text: #495057;
+  --color-heading: #212529;
+  --color-primary: #007bff;
+  --color-white: #ffffff;
+  --color-border: #dee2e6;
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 15px rgba(0, 0, 0, 0.1);
+  --border-radius: 12px;
+  --transition-speed: 300ms;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: 8px;
+}
+
+.app-header p {
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+}
+
+.product-image-container {
+  width: 100%;
+  padding-top: 66.66%; /* 3:2 Aspect Ratio */
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-speed) ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-info {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allows footer to stick to the bottom */
+}
+
+.product-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-heading);
+  margin: 0 0 10px;
+}
+
+.product-description {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.5;
+  margin: 0 0 20px;
+  flex-grow: 1; /* Pushes footer down */
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; /* Pushes itself to the bottom */
+}
+
+.product-price {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.buy-now-button {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 50%; /* Makes it a circle */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem; /* Icon size */
+  transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.buy-now-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
