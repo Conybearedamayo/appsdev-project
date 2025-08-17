@@ -2,7 +2,7 @@ import React from 'react';
 // Import a modern cart icon
 import { FiShoppingCart } from 'react-icons/fi';
 
-const ProductCard = ({ image, name, price, description }) => {
+const ProductCard = ({ props}) => {
   const handleBuyNow = () => {
     console.log(`"${name}" has been added to the cart.`);
   };
@@ -10,13 +10,13 @@ const ProductCard = ({ image, name, price, description }) => {
   return (
     <div className="product-card">
       <div className="product-image-container">
-        <img src={image} alt={name} className="product-image" />
+        <img src={props.image} alt={props.name} className="product-image" />
       </div>
       <div className="product-info">
-        <h2 className="product-name">{name}</h2>
-        <p className="product-description">{description}</p>
+        <h2 className="product-name">{props.name}</h2>
+        <p className="product-description">{props.description}</p>
         <div className="product-footer">
-          <p className="product-price">₱{price}</p>
+          <p className="product-price">₱{props.price}</p>
           <button className="buy-now-button" onClick={handleBuyNow}>
             <FiShoppingCart />
           </button>
